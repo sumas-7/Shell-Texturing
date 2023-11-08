@@ -11,7 +11,7 @@ script = ExtResource("1_34c66")
 
 [node name="ShellManager" type="Node3D" parent="."]
 script = ExtResource("1_v81rh")
-shellCount = 15
+shellCount = 32
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.353554, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353554, 0.612372, 0, 8, 0)

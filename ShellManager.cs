@@ -6,11 +6,10 @@ public partial class ShellManager : Node3D
 	[Export]
 	public int shellCount;
 	[Export]
-	public bool generateShells = false, destroyShells = false;
+	public bool generateShells = false;
 
 	private float shellHeight = 0;
 	private float height_threshold = 0.01f;
-	private bool alreadyGenerated = false;
 	private PackedScene shell_Scene;
 
 	public override void _Ready()
@@ -22,32 +21,21 @@ public partial class ShellManager : Node3D
 			DestroyShells();
 			GenerateShells();
 		}
+		else
+			DestroyShells();
 	}
     public override void _Process(double delta)
     {
 		if(Engine.IsEditorHint()) // if in editor uses bools as buttons to instanciate and destroy shells
 		{
-			// if you press the button to generate and there are no shells, generates them
-			if(generateShells && !alreadyGenerated)
+			// if you press the button to generate shells
+			if(generateShells)
 			{
 				GD.Print("Shells generated");
+				DestroyShells(); // destroys all previous shells if present
 				GenerateShells();
-				alreadyGenerated = true;
-				generateShells = false;
+				generateShells = false; // resets the button to make it clickable again
 			}
-			else
-				generateShells = false;
-
-			// if you press to destroy and there are shells, destroy them
-			if(destroyShells && alreadyGenerated)
-			{
-				GD.Print("Shells removed");
-				DestroyShells();
-				alreadyGenerated = false;
-				destroyShells = false;
-			}
-			else
-				destroyShells = false;
 		}
     }
 
@@ -65,8 +53,7 @@ public partial class ShellManager : Node3D
 			shellMat.SetShaderParameter("height_threshold", height_threshold);
 
 			shellHeight += 0.065f;
-			height_threshold += 0.1f;
-			GD.Print(height_threshold);
+			height_threshold += 0.03f;
 			shell.Owner = GetTree().EditedSceneRoot;
 		}
 		shellHeight = 0;
