@@ -40,6 +40,7 @@ shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
 [sub_resource type="PlaneMesh" id="PlaneMesh_61cec"]
 resource_local_to_scene = true
 material = SubResource("ShaderMaterial_nv3gp")
+size = Vector2(10, 10)
 
 [node name="Shell" type="MeshInstance3D"]
 mesh = SubResource("PlaneMesh_61cec")
