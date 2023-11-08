@@ -1,7 +1,438 @@
-[gd_scene load_steps=3 format=3 uid="uid://iurns3ihhbkd"]
+[gd_scene load_steps=67 format=3 uid="uid://iurns3ihhbkd"]
 
 [ext_resource type="Script" path="res://camera.gd" id="1_34c66"]
 [ext_resource type="Script" path="res://ShellManager.cs" id="1_v81rh"]
+[ext_resource type="PackedScene" uid="uid://ciyflyu7aolft" path="res://Shell.tscn" id="3_v3m7n"]
+[ext_resource type="Shader" path="res://Shaders/ShellTexturing.gdshader" id="4_y2jxc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vomjr"]
+noise_type = 0
+frequency = 0.1365
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sg20l"]
+width = 64
+height = 64
+noise = SubResource("FastNoiseLite_vomjr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwece"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.0
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dt3c4"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_jwece")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5w6ik"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.03
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c8ivp"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_5w6ik")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nfw2q"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.06
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2qr35"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_nfw2q")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g06o1"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.09
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tx1n6"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_g06o1")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_diknv"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.12
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_48a13"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_diknv")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04jo7"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.15
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b3u0j"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_04jo7")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uovmb"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.18
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0nltg"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_uovmb")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lwpbh"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.21
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aixm7"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_lwpbh")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_218k3"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.24
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yhu3g"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_218k3")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lulxu"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.27
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g6g80"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_lulxu")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hgmji"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.3
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0q6rf"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_hgmji")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_87oec"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.33
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gotwg"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_87oec")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_378j6"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.36
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_onoob"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_378j6")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n4h4h"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.39
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6slpl"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_n4h4h")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iqfxa"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.42
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ktpof"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_iqfxa")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1t82"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.45
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vgbxu"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_m1t82")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q2d4k"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.48
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mr7m0"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_q2d4k")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ixapl"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.51
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xg6rx"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_ixapl")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6hbto"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.54
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ylrx1"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_6hbto")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jo6j0"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.57
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_22oeu"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_jo6j0")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_suifa"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.6
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_txqrt"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_suifa")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dajb4"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.63
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tshgq"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_dajb4")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvqi0"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.66
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dimdl"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_hvqi0")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rtlsr"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.69
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sohl2"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_rtlsr")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_traol"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.72
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tp47y"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_traol")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m60c"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.75
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qhpwq"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_5m60c")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4py1"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.78
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y4fe3"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_t4py1")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t8fec"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.81
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1gacn"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_t8fec")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfas7"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.84
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6vgar"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_lfas7")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1sqgs"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_y2jxc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/height_threshold = 0.87
+shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8n23p"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_1sqgs")
+size = Vector2(10, 10)
 
 [node name="Main Node" type="Node3D"]
 
@@ -11,7 +442,126 @@ script = ExtResource("1_34c66")
 
 [node name="ShellManager" type="Node3D" parent="."]
 script = ExtResource("1_v81rh")
-shellCount = 32
+shellCount = 30
+
+[node name="Shell" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+mesh = SubResource("PlaneMesh_dt3c4")
+
+[node name="@MeshInstance3D@38616" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("PlaneMesh_c8ivp")
+
+[node name="@MeshInstance3D@38617" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("PlaneMesh_2qr35")
+
+[node name="@MeshInstance3D@38618" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = SubResource("PlaneMesh_tx1n6")
+
+[node name="@MeshInstance3D@38619" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("PlaneMesh_48a13")
+
+[node name="@MeshInstance3D@38620" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PlaneMesh_b3u0j")
+
+[node name="@MeshInstance3D@38621" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+mesh = SubResource("PlaneMesh_0nltg")
+
+[node name="@MeshInstance3D@38622" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+mesh = SubResource("PlaneMesh_aixm7")
+
+[node name="@MeshInstance3D@38623" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+mesh = SubResource("PlaneMesh_yhu3g")
+
+[node name="@MeshInstance3D@38624" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+mesh = SubResource("PlaneMesh_g6g80")
+
+[node name="@MeshInstance3D@38625" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("PlaneMesh_0q6rf")
+
+[node name="@MeshInstance3D@38626" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+mesh = SubResource("PlaneMesh_gotwg")
+
+[node name="@MeshInstance3D@38627" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+mesh = SubResource("PlaneMesh_onoob")
+
+[node name="@MeshInstance3D@38628" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+mesh = SubResource("PlaneMesh_6slpl")
+
+[node name="@MeshInstance3D@38629" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
+mesh = SubResource("PlaneMesh_ktpof")
+
+[node name="@MeshInstance3D@38630" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("PlaneMesh_vgbxu")
+
+[node name="@MeshInstance3D@38631" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0)
+mesh = SubResource("PlaneMesh_mr7m0")
+
+[node name="@MeshInstance3D@38632" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 0)
+mesh = SubResource("PlaneMesh_xg6rx")
+
+[node name="@MeshInstance3D@38633" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
+mesh = SubResource("PlaneMesh_ylrx1")
+
+[node name="@MeshInstance3D@38634" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, 0)
+mesh = SubResource("PlaneMesh_22oeu")
+
+[node name="@MeshInstance3D@38635" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+mesh = SubResource("PlaneMesh_txqrt")
+
+[node name="@MeshInstance3D@38636" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, 0)
+mesh = SubResource("PlaneMesh_tshgq")
+
+[node name="@MeshInstance3D@38637" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4, 0)
+mesh = SubResource("PlaneMesh_dimdl")
+
+[node name="@MeshInstance3D@38638" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, 0)
+mesh = SubResource("PlaneMesh_sohl2")
+
+[node name="@MeshInstance3D@38639" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 0)
+mesh = SubResource("PlaneMesh_tp47y")
+
+[node name="@MeshInstance3D@38640" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("PlaneMesh_qhpwq")
+
+[node name="@MeshInstance3D@38641" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2, 0)
+mesh = SubResource("PlaneMesh_y4fe3")
+
+[node name="@MeshInstance3D@38642" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4, 0)
+mesh = SubResource("PlaneMesh_1gacn")
+
+[node name="@MeshInstance3D@38643" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6, 0)
+mesh = SubResource("PlaneMesh_6vgar")
+
+[node name="@MeshInstance3D@38644" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_v3m7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8, 0)
+mesh = SubResource("PlaneMesh_8n23p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.353554, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353554, 0.612372, 0, 8, 0)
