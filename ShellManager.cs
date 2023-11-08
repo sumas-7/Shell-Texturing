@@ -8,8 +8,8 @@ public partial class ShellManager : Node3D
 	[Export]
 	public bool generateShells = false, destroyShells = false;
 
-	private int shellIndex = 0;
 	private float shellHeight = 0;
+	private float height_threshold = 0.01f;
 	private bool alreadyGenerated = false;
 	private PackedScene shell_Scene;
 
@@ -56,12 +56,21 @@ public partial class ShellManager : Node3D
 		for(int i = 0; i < shellCount; i++)
 		{
 			MeshInstance3D shell = (MeshInstance3D)shell_Scene.Instantiate();
+			ShaderMaterial shellMat = (ShaderMaterial)shell.Mesh.SurfaceGetMaterial(0);
+
 			AddChild(shell);
 			shell.Position = new(0, shellHeight, 0);
+			shellMat.SetShaderParameter("shell_index", i);
+			shellMat.SetShaderParameter("shell_count", shellCount);
+			shellMat.SetShaderParameter("height_threshold", height_threshold);
+
 			shellHeight += 0.065f;
+			height_threshold += 0.1f;
+			GD.Print(height_threshold);
 			shell.Owner = GetTree().EditedSceneRoot;
 		}
 		shellHeight = 0;
+		height_threshold = 0;
 	}
 
 	private void DestroyShells()

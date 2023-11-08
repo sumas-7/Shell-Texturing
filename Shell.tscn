@@ -1,21 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxsn5bwyimr77"]
+[gd_scene load_steps=6 format=3 uid="uid://ciyflyu7aolft"]
 
 [ext_resource type="Shader" path="res://Shaders/ShellTexturing.gdshader" id="1_mhsyc"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vomjr"]
 noise_type = 0
-frequency = 0.036
+frequency = 0.1365
 fractal_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sg20l"]
-width = 32
-height = 32
+width = 64
+height = 64
 noise = SubResource("FastNoiseLite_vomjr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nv3gp"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_mhsyc")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
 shader_parameter/height_threshold = 0.01
 shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
 
@@ -26,4 +28,3 @@ size = Vector2(10, 10)
 
 [node name="Shell" type="MeshInstance3D"]
 mesh = SubResource("PlaneMesh_61cec")
-skeleton = NodePath("../../Camera3D")
