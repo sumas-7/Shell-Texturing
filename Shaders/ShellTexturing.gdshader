@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode cull_disabled;
 
 uniform float height_threshold;
 uniform sampler2D noise;

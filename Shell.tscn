@@ -1,24 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bxsn5bwyimr77"]
 
-[sub_resource type="Shader" id="Shader_n7ppa"]
-code = "shader_type spatial;
-
-uniform float height_threshold;
-uniform sampler2D noise;
-
-void fragment()
-{
-	float height = texture(noise, UV).r;
-	
-	if(height > height_threshold)
-	{
-		ALBEDO = vec3(0.0, 1.0, 0.0);
-	}
-	else
-	{
-		ALPHA = 0.0;
-	}
-}"
+[ext_resource type="Shader" path="res://Shaders/ShellTexturing.gdshader" id="1_mhsyc"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vomjr"]
 noise_type = 0
@@ -33,7 +15,7 @@ noise = SubResource("FastNoiseLite_vomjr")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nv3gp"]
 resource_local_to_scene = true
 render_priority = 0
-shader = SubResource("Shader_n7ppa")
+shader = ExtResource("1_mhsyc")
 shader_parameter/height_threshold = 0.01
 shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
 
