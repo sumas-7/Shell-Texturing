@@ -5,14 +5,16 @@ public partial class ShellManager : Node3D
 {
 	[Export(PropertyHint.Range, "0, 75")]
 	public int shellCount = 0;
-	[Export(PropertyHint.Range, "0,1.5f")]
+
+	[Export(PropertyHint.Range, "0, 1.5f")]
 	public float shellsSpacing = 0.2f;
-	[Export(PropertyHint.Range, "0,0.2f")]
+
+	[Export(PropertyHint.Range, "0, 0.2f")]
 	public float heightThresholdScaling = 0.03f;
+	
 	[Export]
 	public bool generateShells = false;
 
-	private Vector3 shellsPos = new(0, 0, 0);
 	private float heightThreshold = 0.01f;
 	private PackedScene shell_Scene;
 
@@ -47,20 +49,21 @@ public partial class ShellManager : Node3D
 	{
 		for(int i = 0; i < shellCount; i++)
 		{
+			float shellHeight = (float)i / shellCount;
+			GD.Print(shellHeight);
 			MeshInstance3D shell = (MeshInstance3D)shell_Scene.Instantiate();
 			ShaderMaterial shellMat = (ShaderMaterial)shell.Mesh.SurfaceGetMaterial(0);
 
 			AddChild(shell);
-			shell.Position = shellsPos;
 			shellMat.SetShaderParameter("shell_index", i);
 			shellMat.SetShaderParameter("shell_count", shellCount);
+			shellMat.SetShaderParameter("shell_spacing", shellsSpacing);
 			shellMat.SetShaderParameter("height_threshold", heightThreshold);
 
-			shellsPos.Y += shellsSpacing;
 			heightThreshold += heightThresholdScaling;
-			shell.Owner = GetTree().EditedSceneRoot;
+
+			shell.Owner = GetTree().EditedSceneRoot; // updates the editor to show the newly added nodes
 		}
-		shellsPos.Y = 0;
 		heightThreshold = 0;
 	}
 

@@ -17,6 +17,7 @@ render_priority = 0
 shader = ExtResource("1_mhsyc")
 shader_parameter/shell_index = null
 shader_parameter/shell_count = null
+shader_parameter/shell_spacing = null
 shader_parameter/height_threshold = 0.01
 shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
 
