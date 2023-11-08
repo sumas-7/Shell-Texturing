@@ -1,67 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cx6ghfd1620lo"]
+[gd_scene load_steps=3 format=3 uid="uid://cx6ghfd1620lo"]
 
 [ext_resource type="Script" path="res://camera.gd" id="1_34c66"]
 [ext_resource type="Script" path="res://ShellManager.cs" id="1_v81rh"]
-[ext_resource type="PackedScene" uid="uid://bxsn5bwyimr77" path="res://Shell.tscn" id="3_ph4gb"]
-[ext_resource type="Shader" path="res://Shaders/ShellTexturing.gdshader" id="4_rruow"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_vomjr"]
-noise_type = 0
-frequency = 0.036
-fractal_type = 0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sg20l"]
-width = 32
-height = 32
-noise = SubResource("FastNoiseLite_vomjr")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7u1bs"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("4_rruow")
-shader_parameter/height_threshold = 0.01
-shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_eax1l"]
-resource_local_to_scene = true
-material = SubResource("ShaderMaterial_7u1bs")
-size = Vector2(10, 10)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7qks7"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("4_rruow")
-shader_parameter/height_threshold = 0.01
-shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_j6ie3"]
-resource_local_to_scene = true
-material = SubResource("ShaderMaterial_7qks7")
-size = Vector2(10, 10)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vkgs8"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("4_rruow")
-shader_parameter/height_threshold = 0.01
-shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_cvoc5"]
-resource_local_to_scene = true
-material = SubResource("ShaderMaterial_vkgs8")
-size = Vector2(10, 10)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qrbh4"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("4_rruow")
-shader_parameter/height_threshold = 0.01
-shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_1lxmu"]
-resource_local_to_scene = true
-material = SubResource("ShaderMaterial_qrbh4")
-size = Vector2(10, 10)
 
 [node name="Main Node" type="Node3D"]
 
@@ -72,25 +12,6 @@ script = ExtResource("1_34c66")
 [node name="ShellManager" type="Node3D" parent="."]
 script = ExtResource("1_v81rh")
 shellCount = 4
-
-[node name="Shell" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_ph4gb")]
-mesh = SubResource("PlaneMesh_eax1l")
-skeleton = NodePath("../../Camera3D")
-
-[node name="@MeshInstance3D@35784" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_ph4gb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.065, 0)
-mesh = SubResource("PlaneMesh_j6ie3")
-skeleton = NodePath("../../Camera3D")
-
-[node name="@MeshInstance3D@35785" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_ph4gb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13, 0)
-mesh = SubResource("PlaneMesh_cvoc5")
-skeleton = NodePath("../../Camera3D")
-
-[node name="@MeshInstance3D@35786" type="MeshInstance3D" parent="ShellManager" instance=ExtResource("3_ph4gb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195, 0)
-mesh = SubResource("PlaneMesh_1lxmu")
-skeleton = NodePath("../../Camera3D")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.353554, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353554, 0.612372, 0, 8, 0)
