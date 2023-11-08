@@ -3,11 +3,6 @@ shader_type spatial;
 uniform float height_threshold;
 uniform sampler2D noise;
 
-void vertex()
-{
-	
-}
-
 void fragment()
 {
 	float height = texture(noise, UV).r;
@@ -20,5 +15,4 @@ void fragment()
 	{
 		ALPHA = 0.0;
 	}
-	
 }
