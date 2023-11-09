@@ -6,7 +6,7 @@ public partial class ShellManager : Node3D
 	[Export]
 	public int shellCount;
 	[Export]
-	public bool generateShells = false, destroyShells = false;
+	public bool generateShells = false;
 
 	private float shellHeight = 0;
 	private float height_threshold = 0.01f;
@@ -22,32 +22,21 @@ public partial class ShellManager : Node3D
 			DestroyShells();
 			GenerateShells();
 		}
+		else
+			DestroyShells();
 	}
     public override void _Process(double delta)
     {
 		if(Engine.IsEditorHint()) // if in editor uses bools as buttons to instanciate and destroy shells
 		{
 			// if you press the button to generate and there are no shells, generates them
-			if(generateShells && !alreadyGenerated)
+			if(generateShells)
 			{
 				GD.Print("Shells generated");
-				GenerateShells();
-				alreadyGenerated = true;
-				generateShells = false;
-			}
-			else
-				generateShells = false;
-
-			// if you press to destroy and there are shells, destroy them
-			if(destroyShells && alreadyGenerated)
-			{
-				GD.Print("Shells removed");
 				DestroyShells();
-				alreadyGenerated = false;
-				destroyShells = false;
+				GenerateShells();
+				generateShells = false;
 			}
-			else
-				destroyShells = false;
 		}
     }
 
