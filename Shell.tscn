@@ -2,28 +2,28 @@
 
 [ext_resource type="Shader" path="res://Shaders/ShellTexturing.gdshader" id="1_mhsyc"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_vomjr"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i28m8"]
 noise_type = 0
-frequency = 0.1365
+frequency = 0.114
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sg20l"]
-width = 64
-height = 64
-noise = SubResource("FastNoiseLite_vomjr")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ck0qn"]
+width = 32
+height = 32
+noise = SubResource("FastNoiseLite_i28m8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nv3gp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eq6vy"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_mhsyc")
 shader_parameter/shell_index = null
 shader_parameter/shell_count = null
-shader_parameter/shell_spacing = null
-shader_parameter/height_threshold = 0.01
-shader_parameter/noise = SubResource("NoiseTexture2D_sg20l")
+shader_parameter/shell_spacing = 0.0
+shader_parameter/height_threshold = 0.0
+shader_parameter/noise = SubResource("NoiseTexture2D_ck0qn")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_61cec"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_nv3gp")
+material = SubResource("ShaderMaterial_eq6vy")
 size = Vector2(10, 10)
 
 [node name="Shell" type="MeshInstance3D"]

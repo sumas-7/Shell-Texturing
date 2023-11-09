@@ -12,7 +12,7 @@ script = ExtResource("1_34c66")
 [node name="ShellManager" type="Node3D" parent="."]
 script = ExtResource("1_v81rh")
 shellCount = 20
-shellsSpacing = 1.417
+shellsSpacing = 0.658
 heightThresholdScaling = 0.035
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

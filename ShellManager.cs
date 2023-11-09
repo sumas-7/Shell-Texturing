@@ -49,8 +49,6 @@ public partial class ShellManager : Node3D
 	{
 		for(int i = 0; i < shellCount; i++)
 		{
-			float shellHeight = (float)i / shellCount;
-			GD.Print(shellHeight);
 			MeshInstance3D shell = (MeshInstance3D)shell_Scene.Instantiate();
 			ShaderMaterial shellMat = (ShaderMaterial)shell.Mesh.SurfaceGetMaterial(0);
 

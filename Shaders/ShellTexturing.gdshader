@@ -17,7 +17,8 @@ void vertex()
 void fragment()
 {
 	float height = texture(noise, UV).r; // texture data as float based on coord on the plane
-	
+
+
 	if(height > height_threshold)
 	{
 		ALBEDO = vec3(0.0, 0.1 + 1.0 * shell_height, 0.0);
