@@ -3,13 +3,20 @@ using Godot;
 [Tool]
 public partial class ShellManager : Node3D
 {
-	[Export]
-	public int shellCount;
+	[Export(PropertyHint.Range, "0, 75")]
+	public int shellCount = 0;
+
+	[Export(PropertyHint.Range, "0f, 1.5f")]
+	public float shellsSpacing = 0.065f;
+
+	[Export(PropertyHint.Range, "0f, 0.2f")]
+	public float heightThresholdScaling = 0.03f;
+	
 	[Export]
 	public bool generateShells = false;
 
-	private float shellHeight = 0;
-	private float height_threshold = 0.01f;
+	private float heightThreshold = 0.01f;
+	private Vector3 shellPos = new(0, 0, 0);
 	private bool alreadyGenerated = false;
 	private PackedScene shell_Scene;
 
@@ -48,18 +55,17 @@ public partial class ShellManager : Node3D
 			ShaderMaterial shellMat = (ShaderMaterial)shell.Mesh.SurfaceGetMaterial(0);
 
 			AddChild(shell);
-			shell.Position = new(0, shellHeight, 0);
+			shell.Position = shellPos;
 			shellMat.SetShaderParameter("shell_index", i);
 			shellMat.SetShaderParameter("shell_count", shellCount);
-			shellMat.SetShaderParameter("height_threshold", height_threshold);
+			shellMat.SetShaderParameter("height_threshold", heightThreshold);
 
-			shellHeight += 0.065f;
-			height_threshold += 0.1f;
-			GD.Print(height_threshold);
+			shellPos.Y += shellsSpacing;
+			heightThreshold += heightThresholdScaling;
 			shell.Owner = GetTree().EditedSceneRoot;
 		}
-		shellHeight = 0;
-		height_threshold = 0;
+		shellPos.Y = 0;
+		heightThreshold = 0;
 	}
 
 	private void DestroyShells()
