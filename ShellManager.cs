@@ -64,7 +64,7 @@ public partial class ShellManager : Node3D
 
 			heightThreshold += heightThresholdScaling;
 
-			shell.Owner = GetTree().EditedSceneRoot; // updates the editor to show the newly added nodes
+			shell.Owner = GetTree().EditedSceneRoot;
 		}
 		heightThreshold = 0;
 	}
