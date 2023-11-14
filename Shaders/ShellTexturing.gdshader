@@ -4,7 +4,8 @@ render_mode cull_disabled;
 uniform float shell_index; // current shell pos (0 1 2 3 4 5 ecc.)
 uniform float shell_count; // total shells
 uniform float shell_spacing; // the space between shells
-uniform float height_threshold; // required height value to be colored
+uniform float height_threshold; // required height for the pixel to exist
+uniform vec3 color; // the mesh's color
 uniform sampler2D noise; // 2d noise texture
 
 varying float shell_height;
@@ -12,7 +13,7 @@ varying float shell_height;
 void vertex()
 {
 	shell_height = shell_index / shell_count; // normalized shell position
-	VERTEX.y += shell_height * shell_spacing;
+	VERTEX += NORMAL * shell_height * shell_spacing;
 }
 void fragment()
 {
@@ -20,7 +21,7 @@ void fragment()
 
 	if(height > height_threshold)
 	{
-		ALBEDO = vec3(0.0, 0.1 + 1.0 * shell_height, 0.0);
+		ALBEDO = color * shell_height;
 	}
 	else
 	{

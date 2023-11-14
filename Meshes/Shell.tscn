@@ -1,15 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciyflyu7aolft"]
+[gd_scene load_steps=5 format=3 uid="uid://ciyflyu7aolft"]
 
 [ext_resource type="Shader" path="res://Shaders/ShellTexturing.gdshader" id="1_mhsyc"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_i28m8"]
-noise_type = 0
-frequency = 0.114
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ck0qn"]
-width = 32
-height = 32
-noise = SubResource("FastNoiseLite_i28m8")
+[ext_resource type="Texture2D" uid="uid://cm0fk7q0sfu4e" path="res://FastNoiseTexture.tres" id="2_6i8e1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eq6vy"]
 resource_local_to_scene = true
@@ -19,7 +11,7 @@ shader_parameter/shell_index = null
 shader_parameter/shell_count = null
 shader_parameter/shell_spacing = 0.0
 shader_parameter/height_threshold = 0.0
-shader_parameter/noise = SubResource("NoiseTexture2D_ck0qn")
+shader_parameter/noise = ExtResource("2_6i8e1")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_61cec"]
 resource_local_to_scene = true

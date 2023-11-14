@@ -8,6 +8,9 @@ public partial class ShellManager : Node3D
 
 	[Export]
 	private PackedScene shell_Scene;
+
+	[Export]
+	private Color color;
 	
 	[Export(PropertyHint.Range, "0, 75")]
 	private int shellCount = 0;
@@ -61,6 +64,7 @@ public partial class ShellManager : Node3D
 			shellMat.SetShaderParameter("shell_count", shellCount);
 			shellMat.SetShaderParameter("shell_spacing", shellsSpacing);
 			shellMat.SetShaderParameter("height_threshold", heightThreshold);
+			shellMat.SetShaderParameter("color", color);
 
 			heightThreshold += heightThresholdScaling;
 

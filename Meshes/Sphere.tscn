@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmfvpd42btsi5"]
+
+[ext_resource type="Shader" path="res://Shaders/ShellTexturing.gdshader" id="1_a46mj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wnlb4"]
+noise_type = 5
+frequency = 0.5405
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_07wtn"]
+width = 32
+height = 32
+noise = SubResource("FastNoiseLite_wnlb4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q363e"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_a46mj")
+shader_parameter/shell_index = null
+shader_parameter/shell_count = null
+shader_parameter/shell_spacing = null
+shader_parameter/height_threshold = null
+shader_parameter/noise = SubResource("NoiseTexture2D_07wtn")
+
+[sub_resource type="SphereMesh" id="SphereMesh_cfdmw"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_q363e")
+radius = 1.0
+height = 2.0
+radial_segments = 32
+rings = 16
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_cfdmw")
