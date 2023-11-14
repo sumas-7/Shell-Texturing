@@ -12,10 +12,10 @@ public partial class ShellManager : Node3D
 	[Export(PropertyHint.ColorNoAlpha)]
 	private Color tipColor = new(1, 1, 1), bottomColor = new(1, 1, 1);
 	
-	[Export(PropertyHint.Range, "0, 75")]
+	[Export(PropertyHint.Range, "0, 128")]
 	private int shellCount = 0;
 
-	[Export(PropertyHint.Range, "0, 1.5f")]
+	[Export(PropertyHint.Range, "0, 5f")]
 	private float shellsSpacing = 0.2f;
 
 	[Export(PropertyHint.Range, "0, 0.07f")]

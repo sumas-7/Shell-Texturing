@@ -2,9 +2,9 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wnlb4"]
 noise_type = 5
-frequency = 0.09
-offset = Vector3(85.9, 20, 0)
+frequency = 1.0
 fractal_type = 0
+fractal_octaves = 1
 fractal_lacunarity = 1.955
 fractal_gain = -2.905
 fractal_weighted_strength = 0.28
@@ -13,7 +13,7 @@ domain_warp_enabled = true
 domain_warp_type = 2
 
 [resource]
-width = 256
-height = 256
+width = 64
+height = 32
 seamless_blend_skirt = 0.0
 noise = SubResource("FastNoiseLite_wnlb4")

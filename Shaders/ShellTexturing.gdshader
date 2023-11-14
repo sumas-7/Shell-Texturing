@@ -14,7 +14,10 @@ varying float shell_height;
 void vertex()
 {
 	shell_height = shell_index / shell_count; // normalized shell position
+	
 	VERTEX += NORMAL * shell_height * shell_spacing;
+
+	VERTEX.z += (sin(TIME + shell_height)) * shell_height; // fake wind
 }
 void fragment()
 {
