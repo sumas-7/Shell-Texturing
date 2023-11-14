@@ -3,20 +3,24 @@ using Godot;
 [Tool]
 public partial class ShellManager : Node3D
 {
+	[Export]
+	private bool generateShells = false;
+
+	[Export]
+	private PackedScene shell_Scene;
+	
 	[Export(PropertyHint.Range, "0, 75")]
-	public int shellCount = 0;
+	private int shellCount = 0;
 
 	[Export(PropertyHint.Range, "0, 1.5f")]
-	public float shellsSpacing = 0.2f;
+	private float shellsSpacing = 0.2f;
 
 	[Export(PropertyHint.Range, "0, 0.2f")]
-	public float heightThresholdScaling = 0.03f;
+	private float heightThresholdScaling = 0.03f;
 	
-	[Export]
-	public bool generateShells = false;
+	
 
 	private float heightThreshold = 0.01f;
-	private PackedScene shell_Scene;
 
 	public override void _Ready()
 	{
