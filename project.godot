@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Shell-texturing"
+config/name="Shell-Texturing"
 run/main_scene="res://MainScene.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"

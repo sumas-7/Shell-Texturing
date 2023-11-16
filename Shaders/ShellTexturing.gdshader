@@ -16,13 +16,23 @@ void vertex()
 	shell_height = shell_index / shell_count; // normalized shell position
 	
 	VERTEX += NORMAL * shell_height * shell_spacing;
-
-	VERTEX.z += (sin(TIME + shell_height)) * shell_height; // fake wind
+	
+	// fake wind
+	float fakeWind = (sin(TIME + shell_height * 2.0) * sin(TIME * 2.0)) * shell_height;
+	VERTEX.x += sin(shell_height);
+	VERTEX.z += fakeWind * 0.14;
+	VERTEX.x += fakeWind * 0.08;
 }
 void fragment()
 {
-	float height = texture(noise, UV).r; // texture data as float based on coord on the plane
+	vec2 uv = UV;
+	uv *= 5.0;
 
+//	//fake rotation
+//	uv.x += TIME * 0.05;
+	
+	float height = texture(noise, uv).r; // texture data as float based on coord on the plane
+	
 	if(height > height_threshold)
 	{
 		ALBEDO = mix(bottom_color, tip_color, shell_height);

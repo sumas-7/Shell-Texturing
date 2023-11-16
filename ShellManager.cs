@@ -5,25 +5,20 @@ public partial class ShellManager : Node3D
 {
 	[Export]
 	private bool generateShells = false;
-
+	
 	[Export]
 	private PackedScene shell_Scene;
+
+	[Export(PropertyHint.Range, "0, 1024")]
+	private int shellCount = 0;
 
 	[Export(PropertyHint.ColorNoAlpha)]
 	private Color tipColor = new(1, 1, 1), bottomColor = new(1, 1, 1);
 	
-	[Export(PropertyHint.Range, "0, 128")]
-	private int shellCount = 0;
-
 	[Export(PropertyHint.Range, "0, 5f")]
 	private float shellsSpacing = 0.2f;
 
-	[Export(PropertyHint.Range, "0, 0.07f")]
-	private float heightThresholdScaling = 0.03f;
-	
-	
-
-	private float heightThreshold = 0.01f;
+	private float shellHeight;
 
 	public override void _Ready()
 	{
@@ -56,6 +51,8 @@ public partial class ShellManager : Node3D
 	{
 		for(int i = 0; i < shellCount; i++)
 		{
+			shellHeight = (float)((i+1f) / shellCount); // normalized shell height
+
 			MeshInstance3D shell = (MeshInstance3D)shell_Scene.Instantiate();
 			ShaderMaterial shellMat = (ShaderMaterial)shell.Mesh.SurfaceGetMaterial(0);
 
@@ -63,15 +60,12 @@ public partial class ShellManager : Node3D
 			shellMat.SetShaderParameter("shell_index", i);
 			shellMat.SetShaderParameter("shell_count", shellCount);
 			shellMat.SetShaderParameter("shell_spacing", shellsSpacing);
-			shellMat.SetShaderParameter("height_threshold", heightThreshold);
+			shellMat.SetShaderParameter("height_threshold", shellHeight);
 			shellMat.SetShaderParameter("tip_color", tipColor);
 			shellMat.SetShaderParameter("bottom_color", bottomColor);
 
-			heightThreshold += heightThresholdScaling;
-
 			shell.Owner = GetTree().EditedSceneRoot;
 		}
-		heightThreshold = 0;
 	}
 
 	private void DestroyShells()
