@@ -6,17 +6,29 @@ public partial class ShellManager : Node3D
 	[Export]
 	private bool generateShells = false;
 	
+	[ExportCategory("Basic Shells Properties")]
+	[Export(PropertyHint.Range, "0, 1024")]
+	private int shellCount = 64;
+
+	[Export(PropertyHint.Range, "0, 5f")]
+	private float shellsSpacing = 0.7f;
+	
 	[Export]
 	private PackedScene shell_Scene;
 
-	[Export(PropertyHint.Range, "0, 1024")]
-	private int shellCount = 0;
-
+	[ExportGroup("Color")]
 	[Export(PropertyHint.ColorNoAlpha)]
 	private Color tipColor = new(1, 1, 1), bottomColor = new(1, 1, 1);
-	
-	[Export(PropertyHint.Range, "0, 5f")]
-	private float shellsSpacing = 0.2f;
+
+	[ExportGroup("Moving texture speeds")]
+	[Export]
+	private Vector2 textureSpeed;
+
+	[ExportGroup("Wind Properties")]
+	[Export]
+	private float windSpeed = 1.2f, windCurveIntensity = 1.2f;
+	[Export]
+	private Vector2 windDirection = new(0.0f, 1.0f), windIntensity = new(1.0f, 0.0f);
 
 	private float shellHeight;
 
@@ -57,10 +69,19 @@ public partial class ShellManager : Node3D
 			ShaderMaterial shellMat = (ShaderMaterial)shell.Mesh.SurfaceGetMaterial(0);
 
 			AddChild(shell);
+
 			shellMat.SetShaderParameter("shell_index", i);
 			shellMat.SetShaderParameter("shell_count", shellCount);
 			shellMat.SetShaderParameter("shell_height", shellHeight);
 			shellMat.SetShaderParameter("shell_spacing", shellsSpacing);
+
+			shellMat.SetShaderParameter("uv_speed", textureSpeed);
+
+			shellMat.SetShaderParameter("wind_speed", windSpeed);
+			shellMat.SetShaderParameter("wind_curve_intensity", windCurveIntensity);
+			shellMat.SetShaderParameter("wind_dir", windDirection);
+			shellMat.SetShaderParameter("wind_intensity", windIntensity);
+
 			shellMat.SetShaderParameter("tip_color", tipColor);
 			shellMat.SetShaderParameter("bottom_color", bottomColor);
 

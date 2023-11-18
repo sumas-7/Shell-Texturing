@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://iurns3ihhbkd"]
+[gd_scene load_steps=4 format=3 uid="uid://iurns3ihhbkd"]
 
 [ext_resource type="Script" path="res://camera.gd" id="1_34c66"]
 [ext_resource type="Script" path="res://ShellManager.cs" id="1_v81rh"]
+[ext_resource type="PackedScene" uid="uid://ciyflyu7aolft" path="res://Meshes/Plane.tscn" id="3_vvorg"]
 
 [node name="Main Node" type="Node3D"]
 
@@ -11,10 +12,10 @@ script = ExtResource("1_34c66")
 
 [node name="ShellManager" type="Node3D" parent="."]
 script = ExtResource("1_v81rh")
-shellCount = 32
+shellsSpacing = 1.061
+shell_Scene = ExtResource("3_vvorg")
 tipColor = Color(0.121569, 0.803922, 0.121569, 1)
 bottomColor = Color(0, 0.105882, 0, 1)
-shellsSpacing = 0.986
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.353554, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353554, 0.612372, 0, 8, 0)
