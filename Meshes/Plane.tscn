@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciyflyu7aolft"]
+[gd_scene load_steps=6 format=3 uid="uid://ciyflyu7aolft"]
 
 [ext_resource type="Shader" path="res://Shaders/ShellTexturing.gdshader" id="1_mhsyc"]
-[ext_resource type="Texture2D" uid="uid://cm0fk7q0sfu4e" path="res://FastNoiseTexture.tres" id="2_6i8e1"]
+[ext_resource type="Texture2D" uid="uid://cm0fk7q0sfu4e" path="res://Noise.tres" id="2_pr7ys"]
+[ext_resource type="Texture2D" uid="uid://b1ugy4477xc33" path="res://WindNoise.tres" id="3_fqg1f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eq6vy"]
 resource_local_to_scene = true
@@ -11,7 +12,10 @@ shader_parameter/shell_index = null
 shader_parameter/shell_count = null
 shader_parameter/shell_spacing = 0.0
 shader_parameter/height_threshold = 0.0
-shader_parameter/noise = ExtResource("2_6i8e1")
+shader_parameter/tip_color = null
+shader_parameter/bottom_color = null
+shader_parameter/noise = ExtResource("2_pr7ys")
+shader_parameter/wind_noise = ExtResource("3_fqg1f")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_61cec"]
 resource_local_to_scene = true

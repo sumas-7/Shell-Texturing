@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmfvpd42btsi5"]
 
 [ext_resource type="Shader" path="res://Shaders/ShellTexturing.gdshader" id="1_a46mj"]
-[ext_resource type="Texture2D" uid="uid://cm0fk7q0sfu4e" path="res://FastNoiseTexture.tres" id="2_25tgj"]
+[ext_resource type="Texture2D" uid="uid://cm0fk7q0sfu4e" path="res://Noise.tres" id="2_25tgj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q363e"]
 resource_local_to_scene = true
