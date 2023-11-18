@@ -3,25 +3,30 @@
 [ext_resource type="Shader" path="res://Shaders/ShellTexturing.gdshader" id="1_a46mj"]
 [ext_resource type="Texture2D" uid="uid://cm0fk7q0sfu4e" path="res://Noise.tres" id="2_25tgj"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q363e"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3jqjj"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_a46mj")
 shader_parameter/shell_index = null
 shader_parameter/shell_count = null
+shader_parameter/shell_height = null
 shader_parameter/shell_spacing = null
-shader_parameter/height_threshold = null
+shader_parameter/uv_speed = null
+shader_parameter/wind_speed = null
+shader_parameter/wind_curve_intensity = null
+shader_parameter/wind_dir = null
+shader_parameter/wind_intensity = null
 shader_parameter/tip_color = null
 shader_parameter/bottom_color = null
 shader_parameter/noise = ExtResource("2_25tgj")
 
 [sub_resource type="SphereMesh" id="SphereMesh_cfdmw"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_q363e")
 radius = 1.0
 height = 2.0
 radial_segments = 32
 rings = 16
 
 [node name="MeshInstance3D" type="MeshInstance3D"]
+material_overlay = SubResource("ShaderMaterial_3jqjj")
 mesh = SubResource("SphereMesh_cfdmw")

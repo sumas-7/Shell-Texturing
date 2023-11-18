@@ -1,26 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciyflyu7aolft"]
+[gd_scene load_steps=5 format=3 uid="uid://ciyflyu7aolft"]
 
 [ext_resource type="Shader" path="res://Shaders/ShellTexturing.gdshader" id="1_mhsyc"]
 [ext_resource type="Texture2D" uid="uid://cm0fk7q0sfu4e" path="res://Noise.tres" id="2_pr7ys"]
-[ext_resource type="Texture2D" uid="uid://b1ugy4477xc33" path="res://WindNoise.tres" id="3_fqg1f"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eq6vy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l0c07"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_mhsyc")
 shader_parameter/shell_index = null
 shader_parameter/shell_count = null
-shader_parameter/shell_spacing = 0.0
-shader_parameter/height_threshold = 0.0
+shader_parameter/shell_height = null
+shader_parameter/shell_spacing = null
+shader_parameter/uv_speed = null
+shader_parameter/wind_speed = null
+shader_parameter/wind_curve_intensity = null
+shader_parameter/wind_dir = null
+shader_parameter/wind_intensity = null
 shader_parameter/tip_color = null
 shader_parameter/bottom_color = null
 shader_parameter/noise = ExtResource("2_pr7ys")
-shader_parameter/wind_noise = ExtResource("3_fqg1f")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_61cec"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_eq6vy")
 size = Vector2(10, 10)
 
 [node name="Shell" type="MeshInstance3D"]
+material_overlay = SubResource("ShaderMaterial_l0c07")
 mesh = SubResource("PlaneMesh_61cec")

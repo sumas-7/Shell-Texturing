@@ -66,7 +66,7 @@ public partial class ShellManager : Node3D
 			shellHeight = (float)((i+1f) / shellCount); // normalized shell height
 
 			MeshInstance3D shell = (MeshInstance3D)shell_Scene.Instantiate();
-			ShaderMaterial shellMat = (ShaderMaterial)shell.Mesh.SurfaceGetMaterial(0);
+			ShaderMaterial shellMat = (ShaderMaterial)shell.MaterialOverlay;
 
 			AddChild(shell);
 
