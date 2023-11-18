@@ -59,8 +59,8 @@ public partial class ShellManager : Node3D
 			AddChild(shell);
 			shellMat.SetShaderParameter("shell_index", i);
 			shellMat.SetShaderParameter("shell_count", shellCount);
+			shellMat.SetShaderParameter("shell_height", shellHeight);
 			shellMat.SetShaderParameter("shell_spacing", shellsSpacing);
-			shellMat.SetShaderParameter("height_threshold", shellHeight);
 			shellMat.SetShaderParameter("tip_color", tipColor);
 			shellMat.SetShaderParameter("bottom_color", bottomColor);
 
