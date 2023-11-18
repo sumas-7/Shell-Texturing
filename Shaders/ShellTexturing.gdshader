@@ -20,6 +20,9 @@ uniform vec2 wind_intensity;
 uniform vec3 tip_color;
 uniform vec3 bottom_color;
 
+// others
+uniform float texture_repeat_multiplier;
+
 // 2d noise texture
 uniform sampler2D noise;
 
@@ -35,7 +38,7 @@ void vertex()
 void fragment()
 {
 	vec2 uv = UV;
-	uv *= 5.0;
+	uv *= texture_repeat_multiplier;
 
 	//fake rotation
 	uv.x += TIME * uv_speed.x;
