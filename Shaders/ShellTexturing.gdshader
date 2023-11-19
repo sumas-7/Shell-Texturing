@@ -21,7 +21,7 @@ uniform vec3 tip_color;
 uniform vec3 bottom_color;
 
 // others
-uniform float texture_repeat_multiplier;
+uniform float tiling;
 
 // 2d noise texture
 uniform sampler2D noise;
@@ -31,14 +31,14 @@ void vertex()
 	VERTEX += NORMAL * shell_height * shell_spacing; // displace the shells
 	
 	// fake wind
-	float fakeWind = (sin(TIME + shell_height * wind_curve_intensity) * sin(TIME * wind_speed)) * shell_height;
+	float fakeWind = (sin((TIME + (VERTEX.x  * wind_speed) + (VERTEX.z  * wind_speed)) + shell_height * wind_curve_intensity) * sin(TIME * wind_speed)) * shell_height;
 	VERTEX.x += sin(shell_height * wind_dir.y) + fakeWind * wind_intensity.y;
 	VERTEX.z += sin(shell_height * wind_dir.x) + fakeWind * wind_intensity.x;
 }
 void fragment()
 {
 	vec2 uv = UV;
-	uv *= texture_repeat_multiplier;
+	uv *= tiling;
 
 	//fake rotation
 	uv.x += TIME * uv_speed.x;

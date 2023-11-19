@@ -11,10 +11,11 @@ script = ExtResource("1_34c66")
 
 [node name="ShellManager" type="Node3D" parent="."]
 script = ExtResource("1_v81rh")
-shellsSpacing = 1.628
-textureRepeatMultiplier = 3.0
+shellsSpacing = 1.473
+tiling = 7.0
 tipColor = Color(0.121569, 0.803922, 0.121569, 1)
 bottomColor = Color(0, 0.105882, 0, 1)
+windSpeed = 1.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.353554, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353554, 0.612372, 0, 8, 0)

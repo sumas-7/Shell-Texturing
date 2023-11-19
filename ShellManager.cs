@@ -14,7 +14,7 @@ public partial class ShellManager : Node3D
 	private float shellsSpacing = 0.7f;
 
 	[Export]
-	private float textureRepeatMultiplier = 2.0f;
+	private float tiling = 2.0f;
 	
 	[Export]
 	private PackedScene shell_Scene;
@@ -78,7 +78,7 @@ public partial class ShellManager : Node3D
 			shellMat.SetShaderParameter("shell_height", shellHeight);
 			shellMat.SetShaderParameter("shell_spacing", shellsSpacing);
 
-			shellMat.SetShaderParameter("texture_repeat_multiplier", textureRepeatMultiplier);
+			shellMat.SetShaderParameter("tiling", tiling);
 
 			shellMat.SetShaderParameter("uv_speed", textureSpeed);
 
